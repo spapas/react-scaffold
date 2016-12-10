@@ -1,0 +1,38 @@
+{
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "envify": "^4.0.0",
+    "uglify": "^0.1.5",
+    "uglifyjs": "^2.4.10",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "watch": "SET NODE_ENV=development&&watchify srcjs/main.js -o dist/bundle.js -v -t babelify -t envify",
+    "build": "SET NODE_ENV=production&&browserify srcjs/main.js -t babelify -t envify | uglifyjs -mc warnings=false > dist/bundle.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-data-grid": "^1.0.71",
+    "react-dimensions": "^1.3.0",
+    "react-dom": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "redux-form": "^6.3.2",
+    "redux-thunk": "^2.1.0"
+  }
+}
